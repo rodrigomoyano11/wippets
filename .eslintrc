@@ -3,6 +3,7 @@
     "browser": true,
     "es2021": true
   },
+  "ignorePatterns": ["node_modules/", ".next/", "next.config.js"],
   "extends": [
     "eslint:recommended",
     "next/core-web-vitals",
