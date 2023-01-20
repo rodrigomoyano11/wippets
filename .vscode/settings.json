@@ -1,0 +1,22 @@
+{
+  "typescript.tsdk": "node_modules\\.pnpm\\typescript@4.9.4\\node_modules\\typescript\\lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "eslint.format.enable": true,
+  "files.eol": "\n",
+  "files.exclude": {
+    ".eslintrc": true,
+    ".gitignore": true,
+    ".husky": true,
+    ".next": true,
+    ".prettierignore": true,
+    ".prettierrc": true,
+    "next-env.d.ts": true,
+    "node_modules": true,
+    "package-lock.json": true,
+    "yarn.lock": true,
+    "next.config.js": true,
+    "tsconfig.json": true,
+    "pnpm-lock.yaml": true,
+    "README.md": true
+  }
+}
