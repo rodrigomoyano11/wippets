@@ -217,6 +217,11 @@
   "overrides": [
     {
       "files": ["src/app/**/*.tsx", "src/pages/**/*", "*.js", "*.ts"],
+      "excludedFiles": [
+        "src/app/**/components/**/*",
+        "src/app/**/contexts/**/*",
+        "src/app/**/hooks/**/*"
+      ],
       "rules": {
         "import/no-default-export": "off",
         "import/prefer-default-export": "error",

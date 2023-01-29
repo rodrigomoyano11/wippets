@@ -1,3 +1,5 @@
+import { StyledJsxRegistry } from './components/StyledJsxRegistry'
+
 type Props = {
   children: React.ReactNode
 }
@@ -5,7 +7,9 @@ type Props = {
 const RootLayout = ({ children }: Props) => (
   <html lang="en">
     <head />
-    <body>{children}</body>
+    <body>
+      <StyledJsxRegistry>{children}</StyledJsxRegistry>
+    </body>
   </html>
 )
 
