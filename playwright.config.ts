@@ -9,7 +9,7 @@ const config: PlaywrightTestConfig = {
   testDir: './e2e',
   outputDir: './e2e/test-results',
   webServer: {
-    command: 'pnpm run dev',
+    command: 'npm run dev',
     url: baseURL,
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
