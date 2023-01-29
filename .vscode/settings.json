@@ -5,20 +5,22 @@
   "files.eol": "\n",
   "files.exclude": {
     ".eslintrc": true,
+    ".github": true,
     ".gitignore": true,
     ".husky": true,
     ".next": true,
     ".prettierignore": true,
     ".prettierrc": true,
+    ".vscode": true,
+    "**.config.js": true,
+    "**.config.ts": true,
     "next-env.d.ts": true,
     "node_modules": true,
     "package-lock.json": true,
-    "yarn.lock": true,
-    "next.config.js": true,
-    "vitest.config.ts": true,
-    "tsconfig.json": true,
+    "playwright-report": true,
     "pnpm-lock.yaml": true,
     "README.md": true,
-    ".vscode": true
+    "tsconfig.json": true,
+    "yarn.lock": true
   }
 }
