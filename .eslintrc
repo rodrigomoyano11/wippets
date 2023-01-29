@@ -216,10 +216,11 @@
   },
   "overrides": [
     {
-      "files": ["src/app/**/*.tsx", "src/pages/**/*"],
+      "files": ["src/app/**/*.tsx", "src/pages/**/*", "*.js", "*.ts"],
       "rules": {
         "import/no-default-export": "off",
-        "import/prefer-default-export": "error"
+        "import/prefer-default-export": "error",
+        "spaced-comment": "off"
       }
     }
   ]
