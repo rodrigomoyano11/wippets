@@ -30,7 +30,7 @@
   "rules": {
     // Imports
     "import/order": [
-      "error",
+      "warn",
       {
         "groups": [
           ["builtin", "external"],
@@ -53,10 +53,12 @@
         "alphabetize": { "order": "asc", "caseInsensitive": true }
       }
     ],
+    "import/first": "error",
     "import/exports-last": "error",
     "import/group-exports": "error",
-    "import/prefer-default-export": "error",
-    "import/no-anonymous-default-export": "error",
+    "import/no-default-export": "error",
+    "import/prefer-default-export": "off",
+    "import/no-anonymous-default-export": "off",
 
     // Others
     "array-callback-return": "error",
@@ -83,7 +85,7 @@
       { "ignoreConsecutiveComments": true, "ignoreInlineComments": true }
     ],
     "class-methods-use-this": "error",
-    "complexity": ["error", 2],
+    "complexity": ["error", 7],
     "consistent-return": "error",
     "consistent-this": "error",
     "curly": ["error", "multi", "consistent"],
@@ -98,7 +100,7 @@
     "grouped-accessor-pairs": "error",
     "guard-for-in": "error",
     "id-denylist": "off",
-    "id-length": "error",
+    "id-length": "off",
     "id-match": "error",
     "init-declarations": ["error", "always"],
     "logical-assignment-operators": ["error", "always"],
@@ -211,5 +213,15 @@
     "symbol-description": "error",
     "vars-on-top": "error",
     "yoda": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["src/app/**/*.tsx", "src/pages/**/*", "*.js", "*.ts"],
+      "rules": {
+        "import/no-default-export": "off",
+        "import/prefer-default-export": "error",
+        "spaced-comment": "off"
+      }
+    }
+  ]
 }
