@@ -1,3 +1,4 @@
+import { Header } from './components/Header'
 import { StyledJsxRegistry } from './components/StyledJsxRegistry'
 
 type Props = {
@@ -8,7 +9,11 @@ const RootLayout = ({ children }: Props) => (
   <html lang="en">
     <head />
     <body>
-      <StyledJsxRegistry>{children}</StyledJsxRegistry>
+      <StyledJsxRegistry>
+        <Header />
+
+        {children}
+      </StyledJsxRegistry>
     </body>
   </html>
 )
