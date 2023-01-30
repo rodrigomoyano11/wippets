@@ -217,7 +217,7 @@
   },
   "overrides": [
     {
-      "files": ["src/app/**/*.tsx", "src/pages/**/*", "*.js", "*.ts"],
+      "files": ["src/app/**/*.tsx", "src/pages/**/*", "src/app/**/*.js", "src/app/**/*.ts"],
       "excludedFiles": [
         "src/app/**/components/**/*",
         "src/app/**/contexts/**/*",
