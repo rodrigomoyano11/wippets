@@ -106,7 +106,7 @@
     "logical-assignment-operators": ["error", "always"],
     "max-classes-per-file": "error",
     "max-depth": ["error", 4],
-    "max-lines": ["error", { "max": 300, "skipBlankLines": true, "skipComments": true }],
+    "max-lines": ["warn", { "max": 300, "skipBlankLines": true, "skipComments": true }],
     "max-lines-per-function": [
       "error",
       { "max": 300, "skipBlankLines": true, "skipComments": true }
@@ -212,7 +212,8 @@
     "spaced-comment": ["error", "always"],
     "symbol-description": "error",
     "vars-on-top": "error",
-    "yoda": "error"
+    "yoda": "error",
+    "react/self-closing-comp": "warn"
   },
   "overrides": [
     {
