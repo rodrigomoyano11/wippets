@@ -9,9 +9,7 @@ const OwnersPage = () => (
     <ul>
       {owners.map((owner) => (
         <li key={owner.id}>
-          <Link href={`/owners/owner?ownerId=${owner.id}`}>
-            {`${owner.firstName} ${owner.lastName}`}
-          </Link>
+          <Link href={`/owners/${owner.id}`}>{`${owner.firstName} ${owner.lastName}`}</Link>
         </li>
       ))}
     </ul>

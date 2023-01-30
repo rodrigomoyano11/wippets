@@ -1,13 +1,12 @@
-'use client'
-
-import { useSearchParams } from 'next/navigation'
-
 import { owners } from '~/utils/mocks'
 
-const OwnerPage = () => {
-  const searchParams = useSearchParams()
-  const ownerId = searchParams.get('ownerId')
+type Props = {
+  params: {
+    ownerId: string
+  }
+}
 
+const OwnerPage = ({ params: { ownerId } }: Props) => {
   const foundOwner = owners.find((owner) => owner.id === ownerId)
 
   return (

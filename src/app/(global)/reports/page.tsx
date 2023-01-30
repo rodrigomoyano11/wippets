@@ -12,9 +12,7 @@ const ReportsPage = () => {
       <ul>
         {reports.map((report) => (
           <li key={report.id}>
-            <Link href={`/reports/report?reportId=${report.id}`}>
-              {getSelectedPet(report.petId)?.name}
-            </Link>
+            <Link href={`/reports/${report.id}`}>{getSelectedPet(report.petId)?.name}</Link>
           </li>
         ))}
       </ul>

@@ -13,7 +13,7 @@ const MyPetsPage = () => {
       <ul>
         {petsByOwner.map((pet) => (
           <li key={pet.id}>
-            <Link href={`/my-pets/pet?petId=${pet.id}`}>{pet.name}</Link>
+            <Link href={`/my-pets/${pet.id}`}>{pet.name}</Link>
 
             {pet.deceased && <span> (Deceased)</span>}
             {pet.adopted && <span> (Adopted)</span>}

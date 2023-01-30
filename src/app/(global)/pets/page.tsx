@@ -9,7 +9,7 @@ const PetsPage = () => (
     <ul>
       {pets.map((pet) => (
         <li key={pet.id}>
-          <Link href={`/pets/pet?petId=${pet.id}`}>{pet.name}</Link>
+          <Link href={`/pets/${pet.id}`}>{pet.name}</Link>
 
           {pet.deceased && <span> (Deceased)</span>}
           {pet.adopted && <span> (Adopted)</span>}

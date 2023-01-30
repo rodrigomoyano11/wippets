@@ -1,13 +1,12 @@
-'use client'
-
-import { useSearchParams } from 'next/navigation'
-
 import { pets } from '~/utils/mocks'
 
-const PetPage = () => {
-  const searchParams = useSearchParams()
-  const petId = searchParams.get('petId')
+type Props = {
+  params: {
+    petId: string
+  }
+}
 
+const PetPage = ({ params: { petId } }: Props) => {
   const foundPet = pets.find((pet) => pet.id === petId)
 
   return (

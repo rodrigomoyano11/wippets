@@ -1,13 +1,12 @@
-'use client'
-
-import { useSearchParams } from 'next/navigation'
-
 import { reports } from '~/utils/mocks'
 
-const ReportPage = () => {
-  const searchParams = useSearchParams()
-  const reportId = searchParams.get('reportId')
+type Props = {
+  params: {
+    reportId: string
+  }
+}
 
+const ReportPage = ({ params: { reportId } }: Props) => {
   const foundReport = reports.find((report) => report.id === reportId)
 
   return (
