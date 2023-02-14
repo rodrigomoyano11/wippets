@@ -106,21 +106,21 @@
     "logical-assignment-operators": ["error", "always"],
     "max-classes-per-file": "error",
     "max-depth": ["error", 4],
-    "max-lines": ["warn", { "max": 300, "skipBlankLines": true, "skipComments": true }],
+    "max-lines": "off",
     "max-lines-per-function": [
       "error",
       { "max": 300, "skipBlankLines": true, "skipComments": true }
     ],
     "max-nested-callbacks": ["error", 3],
     "max-params": ["error", 3],
-    "max-statements": ["error", 10],
-    "multiline-comment-style": ["error", "starred-block"],
+    "max-statements": "off",
+    "multiline-comment-style": "off",
     "new-cap": "off",
     "no-alert": "error",
     "no-array-constructor": "error",
     "no-bitwise": "error",
     "no-caller": "error",
-    "no-confusing-arrow": "error",
+    "no-confusing-arrow": "off",
     "no-console": "warn",
     "no-continue": "error",
     "no-else-return": "error",
@@ -141,7 +141,7 @@
     "no-lone-blocks": "error",
     "no-lonely-if": "error",
     "no-loop-func": "error",
-    "no-magic-numbers": "error",
+    "no-magic-numbers": "off",
     "no-mixed-operators": "error",
     "no-multi-assign": "error",
     "no-multi-str": "error",
@@ -217,7 +217,7 @@
   },
   "overrides": [
     {
-      "files": ["src/app/**/*.tsx", "src/pages/**/*", "*.js", "*.ts"],
+      "files": ["src/app/**/*.tsx", "src/pages/**/*", "src/app/**/*.js", "src/app/**/*.ts"],
       "excludedFiles": [
         "src/app/**/components/**/*",
         "src/app/**/contexts/**/*",
@@ -232,7 +232,6 @@
     {
       "files": ["*.config.js", "*.config.ts"],
       "rules": {
-        "no-magic-numbers": "off",
         "no-console": "off"
       }
     }

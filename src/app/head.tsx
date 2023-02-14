@@ -1,4 +1,4 @@
-const Head = () => (
+const RootHead = () => (
   <>
     <title>Wippets</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -7,4 +7,4 @@ const Head = () => (
   </>
 )
 
-export default Head
+export default RootHead
