@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-const Home = () => (
+const RootPage = () => (
   <>
     <h1>Home</h1>
 
@@ -18,4 +18,4 @@ const Home = () => (
   </>
 )
 
-export default Home
+export default RootPage
