@@ -1,5 +1,5 @@
-import { Header } from './components/Header'
-import { StyledJsxRegistry } from './components/StyledJsxRegistry'
+import { Header } from '../components/Header'
+import { StyledJsxRegistry } from '../components/StyledJsxRegistry'
 
 type Props = {
   children: React.ReactNode

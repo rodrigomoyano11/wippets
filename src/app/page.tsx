@@ -2,8 +2,8 @@
 
 import Link from 'next/link'
 
-import { ThemeProvider } from './components/ThemeProvider'
 import { rootGlobalStyles, rootStyles } from './styles'
+import { ThemeProvider } from '../components/ThemeProvider'
 import { MainProvider } from '../contexts/Main'
 
 const RootPage = () => (

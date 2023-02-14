@@ -1,4 +1,4 @@
-import { theme } from '~/app/components/ThemeProvider'
+import { theme } from '~/components/ThemeProvider'
 
 type MainContextValue = {
   theme: keyof typeof theme.themes
