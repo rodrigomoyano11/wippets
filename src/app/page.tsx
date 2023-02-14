@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 
+import { rootGlobalStyles, rootStyles } from './styles'
+
 const RootPage = () => (
   <>
     <h1>Home</h1>
@@ -10,11 +12,10 @@ const RootPage = () => (
 
     <Link href="/my-pets">My Pets</Link>
 
-    <style jsx>{`
-      h1 {
-        color: red;
-      }
-    `}</style>
+    <style jsx>{rootStyles}</style>
+    <style jsx global>
+      {rootGlobalStyles}
+    </style>
   </>
 )
 
