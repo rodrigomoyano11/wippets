@@ -3,8 +3,8 @@
 import Link from 'next/link'
 
 import { ThemeProvider } from './components/ThemeProvider'
-import { MainProvider } from './contexts/Main'
 import { rootGlobalStyles, rootStyles } from './styles'
+import { MainProvider } from '../contexts/Main'
 
 const RootPage = () => (
   <MainProvider value={{ theme: 'dark' }}>

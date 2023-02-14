@@ -3,7 +3,7 @@ import { CSSProperties, useRef } from 'react'
 import { GRADES, OPTICAL_SIZES, SIZES_AS_STRING } from './constants'
 import { Grade, IconName, OpticalSize, Size, Weight } from './types'
 import { theme } from '../ThemeProvider'
-import { useMainContext } from '~/app/contexts/Main'
+import { useMainContext } from '~/contexts/Main'
 import { getNearestFromValues } from '~/utils/getNearestFromValues'
 
 type Color = `#${string}` | 'currentColor' | keyof (typeof theme.themes)['dark' | 'light']
