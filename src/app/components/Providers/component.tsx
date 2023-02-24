@@ -2,7 +2,7 @@
 
 import { PropsWithChildren } from 'react'
 
-import { StyledJsxRegistry } from '~/components/StyledJsxRegistry'
+import { StyledJsxRegistry } from '~/app/components/StyledJsxRegistry'
 import { ThemeProvider } from '~/components/ThemeProvider'
 import { MainProvider } from '~/contexts/Main'
 import { OutlineProvider } from '~/contexts/Outline'
