@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run dev server",
+      "command": "pnpm run dev",
+      "type": "shell",
+      "hide": true,
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": { "regexp": "" },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": " ",
+          "endsPattern": "ready - started server on"
+        }
+      },
+      "runOptions": { "instanceLimit": 1 },
+      "presentation": {
+        "reveal": "never",
+        "panel": "dedicated",
+        "clear": false
+      }
+    },
+    {
+      "label": "Terminate All Tasks",
+      "command": "echo ${input:terminate}",
+      "type": "shell",
+      "hide": true
+    }
+  ],
+  "inputs": [
+    {
+      "id": "terminate",
+      "type": "command",
+      "command": "workbench.action.tasks.terminate",
+      "args": "terminateAll"
+    }
+  ]
+}
