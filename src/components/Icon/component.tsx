@@ -2,11 +2,9 @@ import { CSSProperties, useRef } from 'react'
 
 import { GRADES, OPTICAL_SIZES, SIZES_AS_STRING } from './constants'
 import { Grade, IconName, OpticalSize, Size, Weight } from './types'
-import { theme } from '../ThemeProvider'
-import { useMainContext } from '~/contexts/Main'
+import { useColors } from '~/hooks/useColors'
+import { Color } from '~/types/props'
 import { getNearestFromValues } from '~/utils/getNearestFromValues'
-
-type Color = `#${string}` | 'currentColor' | keyof (typeof theme.themes)['dark' | 'light']
 
 type IconProps = {
   name: IconName
@@ -41,8 +39,7 @@ const IconComponent = (props: IconProps) => {
   } = options ?? {}
 
   // Hooks
-  const { theme: selectedTheme } = useMainContext()
-
+  const { getColorByName } = useColors()
   const elementRef = useRef<HTMLSpanElement>(null)
 
   // Data
@@ -67,14 +64,6 @@ const IconComponent = (props: IconProps) => {
     return SIZES_AS_STRING[size]
   }
 
-  const getColor = () => {
-    if (color.startsWith('#')) return color
-    if (color === 'currentColor') return color
-
-    const selectedColor = color as keyof (typeof theme.themes)['dark' | 'light']
-    return theme.themes[selectedTheme][selectedColor]
-  }
-
   // Styles
   const spanClassNames = `material-symbols-${type} ${className}`
   const spanStyles: CSSProperties = {
@@ -82,7 +71,7 @@ const IconComponent = (props: IconProps) => {
     WebkitUserSelect: 'none',
     fontVariationSettings: `"FILL" ${fill}, "wght" ${weight}, "GRAD" ${grade}, "opsz" ${getWidth()}`,
     fontSize: `${getSize()}px`,
-    color: getColor(),
+    color: getColorByName(color),
   }
 
   // Render
