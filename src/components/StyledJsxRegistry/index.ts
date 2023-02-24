@@ -1,3 +1,1 @@
-import { StyledJsxRegistryComponent as StyledJsxRegistry } from './component'
-
-export { StyledJsxRegistry }
+export { StyledJsxRegistryComponent as StyledJsxRegistry } from './component'
