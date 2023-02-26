@@ -8,14 +8,14 @@ import { VariantWithSize } from '../../types'
 import { useOutlineContext } from '~/contexts/Outline'
 import { Outline, OutlineItem } from '~/contexts/Outline/types'
 
-type HeadingProps = {
+type HeadingProps = PropsWithChildren<{
   id: string
   variant: VariantWithSize
   tag?: HeadingTag
   className?: string
-}
+}>
 
-const HeadingComponent = (props: PropsWithChildren<HeadingProps>) => {
+const HeadingComponent = (props: HeadingProps) => {
   // Props
   const { id, children, variant, tag, className = '' } = props
 

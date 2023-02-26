@@ -8,7 +8,7 @@ import { Text } from '../Text'
 import { useFills } from '~/hooks/useFills'
 import { Fill, Size } from '~/types/props'
 
-type ButtonProps = {
+type ButtonProps = PropsWithChildren<{
   variant?: Variant
   size?: Size
   withGradient?: boolean
@@ -17,9 +17,9 @@ type ButtonProps = {
   onClick?: () => void
   disabled?: boolean
   className?: string
-}
+}>
 
-const ButtonComponent = (props: PropsWithChildren<ButtonProps>) => {
+const ButtonComponent = (props: ButtonProps) => {
   // Props
   const {
     children,

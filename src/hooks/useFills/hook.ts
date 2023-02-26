@@ -1,19 +1,10 @@
+import { GetColorParams, GetGradientParams, GetFillParams } from './types'
 import { theme } from '~/components/ThemeProvider'
 import { useMainContext } from '~/contexts/Main'
 import { Fill, FillName } from '~/types/props'
 import { formatFirstLetter } from '~/utils/formatFirstLetter'
 
-type GetFillArgs = {
-  fill: Fill
-  variant?: 'fill' | 'contentFill' | 'hoverFill'
-  withGradient?: boolean
-}
-
-type GetColorArgs = Omit<GetFillArgs, 'withGradient'>
-
-type GetGradientArgs = GetColorArgs
-
-const useFills = () => {
+const useFillsHook = () => {
   // Hooks
   const { theme: selectedTheme } = useMainContext()
 
@@ -28,21 +19,21 @@ const useFills = () => {
     return `on${formatFirstLetter(fill, 'upper')}`
   }
 
-  const getColor = ({ fill, variant }: GetColorArgs) => {
+  const getColor = ({ fill, variant }: GetColorParams) => {
     if (fill.startsWith('#')) return fill
     if (fill === 'currentColor') return fill
 
     return variant === 'fill' ? fill : getContentFillName(fill)
   }
 
-  const getGradient = ({ fill, variant }: GetGradientArgs) => {
+  const getGradient = ({ fill, variant }: GetGradientParams) => {
     if (fill.startsWith('linear-gradient')) return fill
 
     return variant === 'fill' ? fill : getContentFillName(fill)
   }
 
-  const getFill = (args: GetFillArgs) => {
-    const { fill, variant = 'fill', withGradient } = args
+  const getFill = (params: GetFillParams) => {
+    const { fill, variant = 'fill', withGradient } = params
 
     const fillArgs = { fill, variant }
 
@@ -63,4 +54,4 @@ const useFills = () => {
   }
 }
 
-export { useFills }
+export { useFillsHook }

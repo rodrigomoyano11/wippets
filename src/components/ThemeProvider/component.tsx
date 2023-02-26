@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { PropsWithChildren } from 'react'
 
 import { Noto_Sans as NotoSans } from 'next/font/google'
 
@@ -9,9 +9,7 @@ const notoSans = NotoSans({
   weight: ['400', '500', '700'],
 })
 
-type ThemeProviderProps = {
-  children: ReactNode
-}
+type ThemeProviderProps = PropsWithChildren
 
 const ThemeProviderComponent = ({ children }: ThemeProviderProps) => (
   <div className={notoSans.className}>{children}</div>
