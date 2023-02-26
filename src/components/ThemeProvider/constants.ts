@@ -1,3 +1,5 @@
+import { ThemeProviderTypes } from './types'
+
 // General
 const baseValues = {
   colors: {
@@ -8,7 +10,7 @@ const baseValues = {
 }
 
 // Fills
-const palette = {
+const palette: ThemeProviderTypes['Palette'] = {
   primary: {
     0: baseValues.colors.black,
     10: '#001946',
@@ -124,7 +126,7 @@ const palette = {
   },
 }
 
-const colors = {
+const colors: ThemeProviderTypes['Fill'] = {
   light: {
     primary: palette.primary[40],
     onPrimary: baseValues.colors.white,
@@ -149,9 +151,9 @@ const colors = {
     surfaceVariant: palette.grayScale[80],
     onSurfaceVariant: palette.grayScale[30],
     outline: palette.grayScale[50],
-    inverseOnSurface: palette.neutral[95],
-    inverseSurface: palette.neutral[20],
-    inversePrimary: palette.primary[90],
+    onSurfaceInversed: palette.neutral[95],
+    surfaceInversed: palette.neutral[20],
+    primaryInversed: palette.primary[90],
     shadow: baseValues.colors.black,
     surfaceTint: palette.primary[60],
     outlineVariant: palette.grayScale[80],
@@ -181,9 +183,9 @@ const colors = {
     surfaceVariant: palette.grayScale[30],
     onSurfaceVariant: palette.grayScale[80],
     outline: palette.grayScale[50],
-    inverseOnSurface: palette.neutral[10],
-    inverseSurface: palette.neutral[90],
-    inversePrimary: palette.primary[60],
+    onSurfaceInversed: palette.neutral[10],
+    surfaceInversed: palette.neutral[90],
+    primaryInversed: palette.primary[60],
     shadow: baseValues.colors.black,
     surfaceTint: palette.primary[40],
     outlineVariant: palette.grayScale[30],
@@ -191,7 +193,7 @@ const colors = {
   },
 }
 
-const gradients = {
+const gradients: ThemeProviderTypes['Fill'] = {
   light: {
     primary: `linear-gradient(to right top, ${palette.primary[40]}, ${palette.primary[70]})`,
     onPrimary: baseValues.colors.white,
@@ -216,9 +218,9 @@ const gradients = {
     surfaceVariant: `linear-gradient(to right top, ${palette.grayScale[80]}, ${palette.grayScale[70]})`,
     onSurfaceVariant: palette.grayScale[30],
     outline: `linear-gradient(to right top, ${palette.grayScale[50]}, ${palette.grayScale[40]})`,
-    inverseOnSurface: palette.neutral[95],
-    inverseSurface: palette.neutral[20],
-    inversePrimary: `linear-gradient(to right top, ${palette.primary[90]}, ${palette.primary[70]})`,
+    onSurfaceInversed: palette.neutral[95],
+    surfaceInversed: palette.neutral[20],
+    primaryInversed: `linear-gradient(to right top, ${palette.primary[90]}, ${palette.primary[70]})`,
     shadow: baseValues.colors.black,
     surfaceTint: `linear-gradient(to right top, ${palette.primary[60]}, ${palette.primary[50]})`,
     outlineVariant: `linear-gradient(to right top, ${palette.grayScale[80]}, ${palette.grayScale[70]})`,
@@ -248,9 +250,9 @@ const gradients = {
     surfaceVariant: `linear-gradient(to right top, ${palette.grayScale[20]}, ${palette.grayScale[30]})`,
     onSurfaceVariant: palette.grayScale[80],
     outline: `linear-gradient(to right top, ${palette.grayScale[50]}, ${palette.grayScale[40]})`,
-    inverseOnSurface: palette.neutral[10],
-    inverseSurface: palette.neutral[90],
-    inversePrimary: `linear-gradient(to right top, ${palette.primary[60]}, ${palette.primary[40]})`,
+    onSurfaceInversed: palette.neutral[10],
+    surfaceInversed: palette.neutral[90],
+    primaryInversed: `linear-gradient(to right top, ${palette.primary[60]}, ${palette.primary[40]})`,
     shadow: baseValues.colors.black,
     surfaceTint: `linear-gradient(to right top, ${palette.primary[60]}, ${palette.primary[50]})`,
     outlineVariant: `linear-gradient(to right top, ${palette.grayScale[20]}, ${palette.grayScale[30]})`,
@@ -259,14 +261,14 @@ const gradients = {
 }
 
 // Breakpoints
-const breakpoints = {
+const breakpoints: ThemeProviderTypes['Breakpoints'] = {
   mobile: 0,
   tablet: 768,
   desktop: 1024,
 }
 
 // Typography
-const typography = {
+const typography: ThemeProviderTypes['Typography'] = {
   name: 'Noto Sans',
   weights: {
     regular: 400,
@@ -276,8 +278,8 @@ const typography = {
 }
 
 // Spacings
-const spacings = {
-  0: 0,
+const spacings: ThemeProviderTypes['Spacings'] = {
+  0: '0rem',
   1: '0.125rem',
   2: '0.25rem',
   3: '0.375rem',
