@@ -1,19 +1,10 @@
+import { GetColorArgs, GetGradientArgs, GetFillArgs } from './types'
 import { theme } from '~/components/ThemeProvider'
 import { useMainContext } from '~/contexts/Main'
 import { Fill, FillName } from '~/types/props'
 import { formatFirstLetter } from '~/utils/formatFirstLetter'
 
-type GetFillArgs = {
-  fill: Fill
-  variant?: 'fill' | 'contentFill' | 'hoverFill'
-  withGradient?: boolean
-}
-
-type GetColorArgs = Omit<GetFillArgs, 'withGradient'>
-
-type GetGradientArgs = GetColorArgs
-
-const useFills = () => {
+const useFillsHook = () => {
   // Hooks
   const { theme: selectedTheme } = useMainContext()
 
@@ -63,4 +54,4 @@ const useFills = () => {
   }
 }
 
-export { useFills }
+export { useFillsHook }
