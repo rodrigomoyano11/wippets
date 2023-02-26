@@ -1,14 +1,13 @@
-import { useMemo, useState } from 'react'
+import { PropsWithChildren, useMemo, useState } from 'react'
 
 import { OutlineContext } from './context'
 import { OutlineContextValue } from './types'
 
 type DefaultValue = Pick<OutlineContextValue, 'outline'>
 
-type OutlineProviderProps = {
-  children: React.ReactNode
+type OutlineProviderProps = PropsWithChildren<{
   initialValue?: DefaultValue
-}
+}>
 
 const defaultValue: DefaultValue = { outline: {} }
 

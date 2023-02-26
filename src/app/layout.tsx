@@ -1,11 +1,9 @@
+import { PropsWithChildren } from 'react'
+
 import { Providers } from './components/Providers'
 import { Header } from '../components/Header'
 
-type Props = {
-  children: React.ReactNode
-}
-
-const RootLayout = ({ children }: Props) => (
+const RootLayout = ({ children }: PropsWithChildren) => (
   <html lang="en">
     <head />
     <body>

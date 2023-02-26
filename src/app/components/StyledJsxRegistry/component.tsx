@@ -1,15 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { PropsWithChildren, useState } from 'react'
 
 import { useServerInsertedHTML } from 'next/navigation'
 import { StyleRegistry, createStyleRegistry } from 'styled-jsx'
 
-type Props = {
-  children: React.ReactNode
-}
-
-const StyledJsxRegistryComponent = ({ children }: Props) => {
+const StyledJsxRegistryComponent = ({ children }: PropsWithChildren) => {
   const [jsxStyleRegistry] = useState(() => createStyleRegistry())
 
   useServerInsertedHTML(() => {

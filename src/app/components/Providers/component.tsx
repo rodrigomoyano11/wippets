@@ -8,9 +8,7 @@ import { ThemeProvider } from '~/components/ThemeProvider'
 import { MainProvider } from '~/contexts/Main'
 import { OutlineProvider } from '~/contexts/Outline'
 
-type Props = PropsWithChildren
-
-const ProvidersComponent = ({ children }: Props) => (
+const ProvidersComponent = ({ children }: PropsWithChildren) => (
   <StyledJsxRegistry>
     <GlobalStylesProvider>
       <MainProvider>

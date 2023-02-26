@@ -8,16 +8,16 @@ import { Tag, Variant, VariantWithSize } from './types'
 import { useFills } from '~/hooks/useFills'
 import { Fill, Size } from '~/types/props'
 
-type TextProps = {
+type TextProps = PropsWithChildren<{
   variant?: Variant
   size?: Size
   fill?: Fill
   tag?: Tag
   withSpacing?: boolean
   className?: string
-}
+}>
 
-const TextComponent = (props: PropsWithChildren<TextProps>) => {
+const TextComponent = (props: TextProps) => {
   // Props
   const {
     children,
