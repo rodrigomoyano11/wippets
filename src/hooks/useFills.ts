@@ -1,9 +1,10 @@
-import { ThemeProviderTypes, theme } from '~/components/ThemeProvider'
+import { theme } from '~/components/ThemeProvider'
 import { useMainContext } from '~/contexts/Main'
-import { Color, Gradient } from '~/types/props'
+import { Fill, FillName } from '~/types/props'
+import { formatFirstLetter } from '~/utils/formatFirstLetter'
 
 type GetFillArgs = {
-  fill: Color | Gradient
+  fill: Fill
   variant?: 'fill' | 'contentFill' | 'hoverFill'
   withGradient?: boolean
 }
@@ -13,11 +14,18 @@ type GetColorArgs = Omit<GetFillArgs, 'withGradient'>
 type GetGradientArgs = GetColorArgs
 
 const useFills = () => {
+  // Hooks
   const { theme: selectedTheme } = useMainContext()
 
-  const getContentFillName = (fill: Color | Gradient) => {
+  // Methods
+  const getFillName = (fill: Fill) => {
+    if (!fill.startsWith('on')) return fill
+    return formatFirstLetter(fill.slice(2), 'lower')
+  }
+
+  const getContentFillName = (fill: Fill) => {
     if (fill.startsWith('on')) return fill
-    return `on${fill.charAt(0).toUpperCase()}${fill.slice(1)}`
+    return `on${formatFirstLetter(fill, 'upper')}`
   }
 
   const getColor = ({ fill, variant }: GetColorArgs) => {
@@ -36,18 +44,23 @@ const useFills = () => {
   const getFill = (args: GetFillArgs) => {
     const { fill, variant = 'fill', withGradient } = args
 
-    const selectedFillArgs = { fill, variant }
+    const fillArgs = { fill, variant }
 
-    const selectedFill = withGradient ? getGradient(selectedFillArgs) : getColor(selectedFillArgs)
-    const fillName = selectedFill as ThemeProviderTypes['Color' | 'Gradient']
+    const selectedFill = withGradient ? getGradient(fillArgs) : getColor(fillArgs)
+    const selectedVariant = withGradient ? 'gradients' : 'colors'
 
-    const selectedType = withGradient ? 'gradients' : 'themes'
-    const fillValue = theme[selectedType][selectedTheme][fillName] ?? fill
+    const name = selectedFill as FillName
+    const value = theme[selectedVariant][selectedTheme][name] ?? fill
 
-    return fillValue
+    return value
   }
 
-  return { getFill }
+  // Return
+  return {
+    getFillName,
+    getContentFillName,
+    getFill,
+  }
 }
 
 export { useFills }
