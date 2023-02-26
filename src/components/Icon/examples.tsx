@@ -89,15 +89,15 @@ const IconExamples = () => (
         <h2 className="title">Type</h2>
         <div className="icons">
           <div className="icon-container">
-            <Icon name="account_balance_wallet" type="outlined" className="icon" />
+            <Icon name="account_balance_wallet" variant="outlined" className="icon" />
             <h3 className="icon-title">Outlined</h3>
           </div>
           <div className="icon-container">
-            <Icon name="account_balance_wallet" type="rounded" className="icon" />
+            <Icon name="account_balance_wallet" variant="rounded" className="icon" />
             <h3 className="icon-title">Rounded</h3>
           </div>
           <div className="icon-container">
-            <Icon name="account_balance_wallet" type="sharp" className="icon" />
+            <Icon name="account_balance_wallet" variant="sharp" className="icon" />
             <h3 className="icon-title">Sharp</h3>
           </div>
         </div>

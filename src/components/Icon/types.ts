@@ -1,5 +1,6 @@
 import { GRADES, OPTICAL_SIZES, SIZES_AS_NUMBER, SIZES_AS_STRING, WEIGHTS } from './constants'
 
+type Variant = 'outlined' | 'rounded' | 'sharp'
 type Size = keyof typeof SIZES_AS_STRING | (typeof SIZES_AS_NUMBER)[number]
 type OpticalSize = (typeof OPTICAL_SIZES)[number]
 type Grade = keyof typeof GRADES
@@ -2642,4 +2643,4 @@ type IconName = Readonly<
   | 'zoom_out_map'
 >
 
-export type { Size, OpticalSize, Grade, Weight, IconName }
+export type { Variant, Size, OpticalSize, Grade, Weight, IconName }
