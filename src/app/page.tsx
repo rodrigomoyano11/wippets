@@ -1,8 +1,4 @@
-'use client'
-
 import Link from 'next/link'
-
-import { rootGlobalStyles, rootStyles } from './styles'
 
 const RootPage = () => (
   <>
@@ -11,11 +7,6 @@ const RootPage = () => (
     <p>For see your pets, please go to</p>
 
     <Link href="/my-pets">My Pets</Link>
-
-    <style jsx>{rootStyles}</style>
-    <style jsx global>
-      {rootGlobalStyles}
-    </style>
   </>
 )
 
