@@ -1,13 +1,13 @@
 import { Fill } from '~/types/props'
 
-type GetFillArgs = {
+type GetFillParams = {
   fill: Fill
   variant?: 'fill' | 'contentFill' | 'hoverFill'
   withGradient?: boolean
 }
 
-type GetColorArgs = Omit<GetFillArgs, 'withGradient'>
+type GetColorParams = Omit<GetFillParams, 'withGradient'>
 
-type GetGradientArgs = GetColorArgs
+type GetGradientParams = GetColorParams
 
-export type { GetFillArgs, GetColorArgs, GetGradientArgs }
+export type { GetFillParams, GetColorParams, GetGradientParams }
