@@ -1,45 +1,19 @@
-/* eslint-disable complexity */
-/* eslint-disable no-negated-condition */
 'use client'
 
 import { PropsWithChildren } from 'react'
 
 import { buttonStyles } from './styles'
+import { Variant } from './types'
 import { Text } from '../Text'
 import { useFills } from '~/hooks/useFills'
-import { Color, Gradient, Size } from '~/types/props'
-
-type Variant = 'filled' | 'bordered' | 'text'
-
-type OthersFills =
-  | 'outline'
-  | 'inverseOnSurface'
-  | 'inverseSurface'
-  | 'inversePrimary'
-  | 'shadow'
-  | 'surfaceTint'
-  | 'outlineVariant'
-  | 'scrim'
-
-type ContentFills =
-  | 'onPrimary'
-  | 'onPrimaryContainer'
-  | 'onSecondary'
-  | 'onSecondaryContainer'
-  | 'onTertiary'
-  | 'onTertiaryContainer'
-  | 'onError'
-  | 'onErrorContainer'
-  | 'onBackground'
-  | 'onSurface'
-  | 'onSurfaceVariant'
+import { Fill, Size } from '~/types/props'
 
 type ButtonProps = {
   variant?: Variant
   size?: Size
   withGradient?: boolean
-  fill?: Exclude<Color | Gradient, ContentFills | OthersFills>
-  contentFill?: Color | Gradient
+  fill?: Fill
+  contentFill?: Fill
   onClick?: () => void
   disabled?: boolean
   className?: string

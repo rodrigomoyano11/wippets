@@ -1,16 +1,16 @@
 import { CSSProperties, useRef } from 'react'
 
 import { GRADES, OPTICAL_SIZES, SIZES_AS_STRING } from './constants'
-import { Grade, IconName, OpticalSize, Size, Weight } from './types'
+import { Grade, IconName, OpticalSize, Size, Variant, Weight } from './types'
 import { useFills } from '~/hooks/useFills'
-import { Color } from '~/types/props'
+import { Fill } from '~/types/props'
 import { getNearestFromValues } from '~/utils/getNearestFromValues'
 
 type IconProps = {
   name: IconName
-  type?: 'outlined' | 'rounded' | 'sharp'
+  variant?: Variant
   size?: Size
-  fill?: Color
+  fill?: Fill
   options?: {
     fill?: 'yes' | 'no'
     weight?: Weight
@@ -24,7 +24,7 @@ const IconComponent = (props: IconProps) => {
   // Props
   const {
     name,
-    type = 'outlined',
+    variant = 'outlined',
     size = 'medium',
     fill: fillProp = '#000',
     options,
@@ -66,7 +66,7 @@ const IconComponent = (props: IconProps) => {
   }
 
   // Styles
-  const spanClassNames = `material-symbols-${type} ${className}`
+  const spanClassNames = `material-symbols-${variant} ${className}`
 
   const spanStyles: CSSProperties = {
     userSelect: 'none',
