@@ -6,12 +6,12 @@ import { Heading, HeadingProps } from './components/Heading'
 import { textStyles } from './styles'
 import { Tag, Variant, VariantWithSize } from './types'
 import { useFills } from '~/hooks/useFills'
-import { Color, Size } from '~/types/props'
+import { Fill, Size } from '~/types/props'
 
 type TextProps = {
   variant?: Variant
   size?: Size
-  color?: Color
+  fill?: Fill
   tag?: Tag
   withSpacing?: boolean
   className?: string
@@ -23,7 +23,7 @@ const TextComponent = (props: PropsWithChildren<TextProps>) => {
     children,
     variant = 'body',
     size = 'medium',
-    color: colorProp = 'onBackground',
+    fill = 'onBackground',
     tag,
     withSpacing = false,
     className = '',
@@ -37,10 +37,8 @@ const TextComponent = (props: PropsWithChildren<TextProps>) => {
   // Data
   const selectedType: VariantWithSize = `${variant}-${size}`
 
-  const color = getFill({ fill: colorProp })
-
   // Styles
-  const cssVariables = { '--color': color }
+  const cssVariables = { '--fill': getFill({ fill }) }
 
   const containerClassName = `container ${className} ${withSpacing ? 'with-spacing' : ''}`
 

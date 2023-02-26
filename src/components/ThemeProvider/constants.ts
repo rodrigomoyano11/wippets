@@ -1,4 +1,7 @@
-const base = {
+import { ThemeProviderTypes } from './types'
+
+// General
+const baseValues = {
   colors: {
     main: '#376ede',
     black: '#000000',
@@ -6,9 +9,10 @@ const base = {
   },
 }
 
-const palette = {
+// Fills
+const palette: ThemeProviderTypes['Palette'] = {
   primary: {
-    0: base.colors.black,
+    0: baseValues.colors.black,
     10: '#001946',
     20: '#002c71',
     25: '#003687',
@@ -23,11 +27,11 @@ const palette = {
     95: '#eef0ff',
     98: '#faf8ff',
     99: '#fefbff',
-    100: base.colors.white,
+    100: baseValues.colors.white,
   },
 
   secondary: {
-    0: base.colors.black,
+    0: baseValues.colors.black,
     10: '#350041',
     20: '#560069',
     25: '#68007e',
@@ -42,11 +46,11 @@ const palette = {
     95: '#ffebfc',
     98: '#fff7fa',
     99: '#fffbff',
-    100: base.colors.white,
+    100: baseValues.colors.white,
   },
 
   tertiary: {
-    0: base.colors.black,
+    0: baseValues.colors.black,
     10: '#001f29',
     20: '#003544',
     25: '#004153',
@@ -61,11 +65,11 @@ const palette = {
     95: '#def4ff',
     98: '#f3faff',
     99: '#fafdff',
-    100: base.colors.white,
+    100: baseValues.colors.white,
   },
 
   neutral: {
-    0: base.colors.black,
+    0: baseValues.colors.black,
     10: '#001f25',
     20: '#00363f',
     25: '#00424d',
@@ -80,11 +84,11 @@ const palette = {
     95: '#d6f6ff',
     98: '#effbff',
     99: '#f8fdff',
-    100: base.colors.white,
+    100: baseValues.colors.white,
   },
 
   grayScale: {
-    0: base.colors.black,
+    0: baseValues.colors.black,
     10: '#191b23',
     20: '#2e3038',
     25: '#393b43',
@@ -99,11 +103,11 @@ const palette = {
     95: '#f0f0fa',
     98: '#faf8ff',
     99: '#fefbff',
-    100: base.colors.white,
+    100: baseValues.colors.white,
   },
 
   error: {
-    0: base.colors.black,
+    0: baseValues.colors.black,
     10: '#410002',
     20: '#690005',
     25: '#7e0007',
@@ -118,26 +122,26 @@ const palette = {
     95: '#ffedea',
     98: '#fff8f7',
     99: '#fffbff',
-    100: base.colors.white,
+    100: baseValues.colors.white,
   },
 }
 
-const themes = {
+const colors: ThemeProviderTypes['Fill'] = {
   light: {
     primary: palette.primary[40],
-    onPrimary: base.colors.white,
+    onPrimary: baseValues.colors.white,
     primaryContainer: palette.primary[90],
     onPrimaryContainer: palette.primary[10],
     secondary: palette.secondary[40],
-    onSecondary: base.colors.white,
+    onSecondary: baseValues.colors.white,
     secondaryContainer: palette.secondary[90],
     onSecondaryContainer: palette.secondary[10],
     tertiary: palette.tertiary[40],
-    onTertiary: base.colors.white,
+    onTertiary: baseValues.colors.white,
     tertiaryContainer: palette.tertiary[90],
     onTertiaryContainer: palette.tertiary[10],
     error: palette.error[40],
-    onError: base.colors.white,
+    onError: baseValues.colors.white,
     errorContainer: palette.error[90],
     onErrorContainer: palette.error[10],
     background: palette.neutral[98],
@@ -147,13 +151,13 @@ const themes = {
     surfaceVariant: palette.grayScale[80],
     onSurfaceVariant: palette.grayScale[30],
     outline: palette.grayScale[50],
-    inverseOnSurface: palette.neutral[95],
-    inverseSurface: palette.neutral[20],
-    inversePrimary: palette.primary[90],
-    shadow: base.colors.black,
+    onSurfaceInversed: palette.neutral[95],
+    surfaceInversed: palette.neutral[20],
+    primaryInversed: palette.primary[90],
+    shadow: baseValues.colors.black,
     surfaceTint: palette.primary[60],
     outlineVariant: palette.grayScale[80],
-    scrim: base.colors.black,
+    scrim: baseValues.colors.black,
   },
   dark: {
     primary: palette.primary[40],
@@ -179,32 +183,32 @@ const themes = {
     surfaceVariant: palette.grayScale[30],
     onSurfaceVariant: palette.grayScale[80],
     outline: palette.grayScale[50],
-    inverseOnSurface: palette.neutral[10],
-    inverseSurface: palette.neutral[90],
-    inversePrimary: palette.primary[60],
-    shadow: base.colors.black,
+    onSurfaceInversed: palette.neutral[10],
+    surfaceInversed: palette.neutral[90],
+    primaryInversed: palette.primary[60],
+    shadow: baseValues.colors.black,
     surfaceTint: palette.primary[40],
     outlineVariant: palette.grayScale[30],
-    scrim: base.colors.black,
+    scrim: baseValues.colors.black,
   },
 }
 
-const gradients = {
+const gradients: ThemeProviderTypes['Fill'] = {
   light: {
     primary: `linear-gradient(to right top, ${palette.primary[40]}, ${palette.primary[70]})`,
-    onPrimary: base.colors.white,
+    onPrimary: baseValues.colors.white,
     primaryContainer: `linear-gradient(to right top, ${palette.primary[90]}, ${palette.primary[70]})`,
     onPrimaryContainer: palette.primary[10],
     secondary: `linear-gradient(to right top, ${palette.secondary[40]}, ${palette.secondary[70]})`,
-    onSecondary: base.colors.white,
+    onSecondary: baseValues.colors.white,
     secondaryContainer: `linear-gradient(to right top, ${palette.secondary[90]}, ${palette.secondary[70]})`,
     onSecondaryContainer: palette.secondary[10],
     tertiary: `linear-gradient(to right top, ${palette.tertiary[40]}, ${palette.tertiary[70]})`,
-    onTertiary: base.colors.white,
+    onTertiary: baseValues.colors.white,
     tertiaryContainer: `linear-gradient(to right top, ${palette.tertiary[90]}, ${palette.tertiary[70]})`,
     onTertiaryContainer: palette.tertiary[10],
     error: `linear-gradient(to right top, ${palette.error[40]}, ${palette.error[70]})`,
-    onError: base.colors.white,
+    onError: baseValues.colors.white,
     errorContainer: `linear-gradient(to right top, ${palette.error[90]}, ${palette.error[70]})`,
     onErrorContainer: palette.error[10],
     background: `linear-gradient(to right top, ${palette.neutral[98]}, ${palette.neutral[95]})`,
@@ -214,13 +218,13 @@ const gradients = {
     surfaceVariant: `linear-gradient(to right top, ${palette.grayScale[80]}, ${palette.grayScale[70]})`,
     onSurfaceVariant: palette.grayScale[30],
     outline: `linear-gradient(to right top, ${palette.grayScale[50]}, ${palette.grayScale[40]})`,
-    inverseOnSurface: palette.neutral[95],
-    inverseSurface: palette.neutral[20],
-    inversePrimary: `linear-gradient(to right top, ${palette.primary[90]}, ${palette.primary[70]})`,
-    shadow: base.colors.black,
+    onSurfaceInversed: palette.neutral[95],
+    surfaceInversed: palette.neutral[20],
+    primaryInversed: `linear-gradient(to right top, ${palette.primary[90]}, ${palette.primary[70]})`,
+    shadow: baseValues.colors.black,
     surfaceTint: `linear-gradient(to right top, ${palette.primary[60]}, ${palette.primary[50]})`,
     outlineVariant: `linear-gradient(to right top, ${palette.grayScale[80]}, ${palette.grayScale[70]})`,
-    scrim: base.colors.black,
+    scrim: baseValues.colors.black,
   },
   dark: {
     primary: `linear-gradient(to right top, ${palette.primary[40]}, ${palette.primary[70]})`,
@@ -246,23 +250,25 @@ const gradients = {
     surfaceVariant: `linear-gradient(to right top, ${palette.grayScale[20]}, ${palette.grayScale[30]})`,
     onSurfaceVariant: palette.grayScale[80],
     outline: `linear-gradient(to right top, ${palette.grayScale[50]}, ${palette.grayScale[40]})`,
-    inverseOnSurface: palette.neutral[10],
-    inverseSurface: palette.neutral[90],
-    inversePrimary: `linear-gradient(to right top, ${palette.primary[60]}, ${palette.primary[40]})`,
-    shadow: base.colors.black,
+    onSurfaceInversed: palette.neutral[10],
+    surfaceInversed: palette.neutral[90],
+    primaryInversed: `linear-gradient(to right top, ${palette.primary[60]}, ${palette.primary[40]})`,
+    shadow: baseValues.colors.black,
     surfaceTint: `linear-gradient(to right top, ${palette.primary[60]}, ${palette.primary[50]})`,
     outlineVariant: `linear-gradient(to right top, ${palette.grayScale[20]}, ${palette.grayScale[30]})`,
-    scrim: base.colors.black,
+    scrim: baseValues.colors.black,
   },
 }
 
-const breakpoints = {
+// Breakpoints
+const breakpoints: ThemeProviderTypes['Breakpoints'] = {
   mobile: 0,
   tablet: 768,
   desktop: 1024,
 }
 
-const typography = {
+// Typography
+const typography: ThemeProviderTypes['Typography'] = {
   name: 'Noto Sans',
   weights: {
     regular: 400,
@@ -271,8 +277,9 @@ const typography = {
   },
 }
 
-const spacings = {
-  0: 0,
+// Spacings
+const spacings: ThemeProviderTypes['Spacings'] = {
+  0: '0rem',
   1: '0.125rem',
   2: '0.25rem',
   3: '0.375rem',
@@ -310,7 +317,7 @@ const spacings = {
 
 const theme = {
   palette,
-  themes,
+  colors,
   gradients,
   breakpoints,
   typography,
