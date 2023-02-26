@@ -2,7 +2,7 @@ import { theme } from './constants'
 
 type Breakpoint = keyof typeof theme.breakpoints
 
-type Color = keyof (typeof theme.themes)['dark' | 'light']
+type Color = keyof (typeof theme.colors)['dark' | 'light']
 
 type Gradient = keyof (typeof theme.gradients)['dark' | 'light']
 
