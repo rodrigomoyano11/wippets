@@ -2,18 +2,23 @@
 
 import { PropsWithChildren } from 'react'
 
+import { GlobalStylesProvider } from '~/app/components/GlobalStylesProvider'
 import { StyledJsxRegistry } from '~/app/components/StyledJsxRegistry'
 import { ThemeProvider } from '~/components/ThemeProvider'
 import { MainProvider } from '~/contexts/Main'
 import { OutlineProvider } from '~/contexts/Outline'
 
-const ProvidersComponent = ({ children }: PropsWithChildren) => (
+type Props = PropsWithChildren
+
+const ProvidersComponent = ({ children }: Props) => (
   <StyledJsxRegistry>
-    <MainProvider>
-      <OutlineProvider>
-        <ThemeProvider>{children}</ThemeProvider>
-      </OutlineProvider>
-    </MainProvider>
+    <GlobalStylesProvider>
+      <MainProvider>
+        <OutlineProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </OutlineProvider>
+      </MainProvider>
+    </GlobalStylesProvider>
   </StyledJsxRegistry>
 )
 
