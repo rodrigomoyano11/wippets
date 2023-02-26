@@ -1,4 +1,4 @@
-const getNearestFromValues = (values: number[] | ReadonlyArray<number>, value: number) => {
+const getNearestFromValuesUtil = (values: number[] | ReadonlyArray<number>, value: number) => {
   if (!values.length) throw new Error('getNearestFromValues: values is empty')
 
   return values.reduce((previous, current) => {
@@ -9,4 +9,4 @@ const getNearestFromValues = (values: number[] | ReadonlyArray<number>, value: n
   })
 }
 
-export { getNearestFromValues }
+export { getNearestFromValuesUtil }

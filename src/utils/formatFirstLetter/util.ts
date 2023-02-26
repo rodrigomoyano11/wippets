@@ -1,4 +1,4 @@
-const formatFirstLetter = (sentence: string, variant: 'upper' | 'lower' = 'upper') => {
+const formatFirstLetterUtil = (sentence: string, variant: 'upper' | 'lower' = 'upper') => {
   const firtLetter = sentence.charAt(0)
   const restOfSentence = sentence.slice(1)
 
@@ -6,4 +6,4 @@ const formatFirstLetter = (sentence: string, variant: 'upper' | 'lower' = 'upper
   return firtLetter.toUpperCase() + restOfSentence
 }
 
-export { formatFirstLetter }
+export { formatFirstLetterUtil }
