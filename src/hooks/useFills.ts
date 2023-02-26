@@ -4,7 +4,7 @@ import { Color, Gradient } from '~/types/props'
 
 type GetFillArgs = {
   fill: Color | Gradient
-  variant?: 'fill' | 'onFill' | 'hoverFill'
+  variant?: 'fill' | 'contentFill' | 'hoverFill'
   withGradient?: boolean
 }
 
@@ -15,7 +15,7 @@ type GetGradientArgs = GetColorArgs
 const useFills = () => {
   const { theme: selectedTheme } = useMainContext()
 
-  const getOnFillName = (fill: Color | Gradient) => {
+  const getContentFillName = (fill: Color | Gradient) => {
     if (fill.startsWith('on')) return fill
     return `on${fill.charAt(0).toUpperCase()}${fill.slice(1)}`
   }
@@ -24,13 +24,13 @@ const useFills = () => {
     if (fill.startsWith('#')) return fill
     if (fill === 'currentColor') return fill
 
-    return variant === 'fill' ? fill : getOnFillName(fill)
+    return variant === 'fill' ? fill : getContentFillName(fill)
   }
 
   const getGradient = ({ fill, variant }: GetGradientArgs) => {
     if (fill.startsWith('linear-gradient')) return fill
 
-    return variant === 'fill' ? fill : getOnFillName(fill)
+    return variant === 'fill' ? fill : getContentFillName(fill)
   }
 
   const getFill = (args: GetFillArgs) => {

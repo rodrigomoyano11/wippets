@@ -10,7 +10,7 @@ type IconProps = {
   name: IconName
   type?: 'outlined' | 'rounded' | 'sharp'
   size?: Size
-  color?: Color
+  fill?: Color
   options?: {
     fill?: 'yes' | 'no'
     weight?: Weight
@@ -26,13 +26,13 @@ const IconComponent = (props: IconProps) => {
     name,
     type = 'outlined',
     size = 'medium',
-    color: colorProp = '#000',
+    fill: fillProp = '#000',
     options,
     className = '',
   } = props
 
   const {
-    fill: fillProp = 'no',
+    fill: withFillProp = 'no',
     weight = 400,
     grade: gradeProp = 'medium',
     opticalSize: opticalSizeProp,
@@ -43,9 +43,9 @@ const IconComponent = (props: IconProps) => {
   const elementRef = useRef<HTMLSpanElement>(null)
 
   // Data
-  const fill = fillProp === 'yes' ? 1 : 0
+  const withFill = withFillProp === 'yes' ? 1 : 0
   const grade = GRADES[gradeProp]
-  const color = getFill({ fill: colorProp })
+  const fill = getFill({ fill: fillProp })
 
   // Methods
   const getWidth = () => {
@@ -71,9 +71,9 @@ const IconComponent = (props: IconProps) => {
   const spanStyles: CSSProperties = {
     userSelect: 'none',
     WebkitUserSelect: 'none',
-    fontVariationSettings: `"FILL" ${fill}, "wght" ${weight}, "GRAD" ${grade}, "opsz" ${getWidth()}`,
+    fontVariationSettings: `"FILL" ${withFill}, "wght" ${weight}, "GRAD" ${grade}, "opsz" ${getWidth()}`,
     fontSize: `${getSize()}px`,
-    color,
+    color: fill,
   }
 
   // Render

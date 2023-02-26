@@ -7,7 +7,7 @@ const { typography, spacings } = theme
 const textStyles = css`
   .container {
     display: block;
-    color: var(--color);
+    color: var(--fill);
   }
 
   .container :global(:where(h1, h2, h3, h4, h5, h6, p, span)) {

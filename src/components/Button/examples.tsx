@@ -139,7 +139,7 @@ const ButtonExamples = () => (
             <h3 className="icon-title">Color</h3>
           </div>
           <div className="icon-container">
-            <Button fill="#53E465" onFill="#ffffff">
+            <Button fill="#53E465" contentFill="#ffffff">
               Example
             </Button>
             <h3 className="icon-title">Custom Color</h3>
@@ -154,7 +154,7 @@ const ButtonExamples = () => (
           <div className="icon-container">
             <Button
               fill="linear-gradient(90deg, #02a316 0%, #53E465 100%)"
-              onFill="#ffffff"
+              contentFill="#ffffff"
               withGradient>
               Example
             </Button>

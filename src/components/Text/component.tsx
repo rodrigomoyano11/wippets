@@ -11,7 +11,7 @@ import { Color, Size } from '~/types/props'
 type TextProps = {
   variant?: Variant
   size?: Size
-  color?: Color
+  fill?: Color
   tag?: Tag
   withSpacing?: boolean
   className?: string
@@ -23,7 +23,7 @@ const TextComponent = (props: PropsWithChildren<TextProps>) => {
     children,
     variant = 'body',
     size = 'medium',
-    color: colorProp = 'onBackground',
+    fill: fillProp = 'onBackground',
     tag,
     withSpacing = false,
     className = '',
@@ -37,10 +37,10 @@ const TextComponent = (props: PropsWithChildren<TextProps>) => {
   // Data
   const selectedType: VariantWithSize = `${variant}-${size}`
 
-  const color = getFill({ fill: colorProp })
+  const fill = getFill({ fill: fillProp })
 
   // Styles
-  const cssVariables = { '--color': color }
+  const cssVariables = { '--fill': fill }
 
   const containerClassName = `container ${className} ${withSpacing ? 'with-spacing' : ''}`
 

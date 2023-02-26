@@ -21,7 +21,7 @@ type OthersFills =
   | 'outlineVariant'
   | 'scrim'
 
-type OnFills =
+type ContentFills =
   | 'onPrimary'
   | 'onPrimaryContainer'
   | 'onSecondary'
@@ -38,8 +38,8 @@ type ButtonProps = {
   variant?: Variant
   size?: Size
   withGradient?: boolean
-  fill?: Exclude<Color | Gradient, OnFills | OthersFills>
-  onFill?: Color | Gradient
+  fill?: Exclude<Color | Gradient, ContentFills | OthersFills>
+  contentFill?: Color | Gradient
   onClick?: () => void
   disabled?: boolean
   className?: string
@@ -53,7 +53,7 @@ const ButtonComponent = (props: PropsWithChildren<ButtonProps>) => {
     size = 'medium',
     withGradient = false,
     fill = 'primary',
-    onFill,
+    contentFill,
     onClick,
     disabled = false,
     className = '',
@@ -64,11 +64,12 @@ const ButtonComponent = (props: PropsWithChildren<ButtonProps>) => {
 
   // Exceptions
   const fillIsCustom = fill.startsWith('#') || fill.includes('gradient')
-  if (fillIsCustom && !onFill) throw new Error('"onFill" is required when using a custom fill')
+  if (fillIsCustom && !contentFill)
+    throw new Error('"contentFill" is required when using a custom fill')
 
   const fillIsCurrentColor = fill === 'currentColor'
-  if (fillIsCurrentColor && onFill)
-    throw new Error('"onFill" must not be used when using "currentColor" as fill')
+  if (fillIsCurrentColor && contentFill)
+    throw new Error('"contentFill" must not be used when using "currentColor" as fill')
 
   // Data
   const fillValue = getFill({
@@ -77,16 +78,16 @@ const ButtonComponent = (props: PropsWithChildren<ButtonProps>) => {
     withGradient,
   })
 
-  const onFillValue = getFill({
-    fill: onFill ?? fill,
-    variant: 'onFill',
+  const contentFillValue = getFill({
+    fill: contentFill ?? fill,
+    variant: 'contentFill',
     withGradient,
   })
 
   // Styles
   const cssVariables = {
     '--fill': fillValue,
-    '--on-fill': onFillValue,
+    '--on-fill': contentFillValue,
   }
 
   const buttonClassName = `button ${className} ${variant} ${size} ${disabled ? 'disabled' : ''} ${
@@ -105,7 +106,7 @@ const ButtonComponent = (props: PropsWithChildren<ButtonProps>) => {
   return (
     <button type="button" {...buttonProps}>
       {typeof children === 'string' ? (
-        <Text variant="label" size={size} color="currentColor" className="label">
+        <Text variant="label" size={size} fill="currentColor" className="label">
           {children}
         </Text>
       ) : (

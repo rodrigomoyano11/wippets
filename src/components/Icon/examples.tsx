@@ -195,23 +195,23 @@ const IconExamples = () => (
         <h2 className="title">Color</h2>
         <div className="icons">
           <div className="icon-container">
-            <Icon name="account_circle" color="primary" className="icon" />
+            <Icon name="account_circle" fill="primary" className="icon" />
             <h3 className="icon-title">Primary</h3>
           </div>
           <div className="icon-container">
-            <Icon name="account_circle" color="secondary" className="icon" />
+            <Icon name="account_circle" fill="secondary" className="icon" />
             <h3 className="icon-title">Secondary</h3>
           </div>
           <div className="icon-container">
-            <Icon name="account_circle" color="tertiary" className="icon" />
+            <Icon name="account_circle" fill="tertiary" className="icon" />
             <h3 className="icon-title">Action</h3>
           </div>
           <div className="icon-container">
-            <Icon name="account_circle" color="error" className="icon" />
+            <Icon name="account_circle" fill="error" className="icon" />
             <h3 className="icon-title">Error</h3>
           </div>
           <div className="icon-container">
-            <Icon name="account_circle" color="#53E465" className="icon" />
+            <Icon name="account_circle" fill="#53E465" className="icon" />
             <h3 className="icon-title">Custom</h3>
           </div>
         </div>

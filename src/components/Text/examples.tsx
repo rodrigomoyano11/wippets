@@ -366,28 +366,28 @@ const TextExamples = () => (
         <h2 className="title">Color</h2>
         <div className="icons">
           <div className="icon-container">
-            <Text variant="display" size="large" color="primary">
+            <Text variant="display" size="large" fill="primary">
               Example
             </Text>
             <h4 className="icon-title">Primary</h4>
           </div>
 
           <div className="icon-container">
-            <Text variant="headline" size="large" color="secondary">
+            <Text variant="headline" size="large" fill="secondary">
               Example
             </Text>
             <h4 className="icon-title">Secondary</h4>
           </div>
 
           <div className="icon-container">
-            <Text variant="title" size="large" color="tertiary">
+            <Text variant="title" size="large" fill="tertiary">
               Example
             </Text>
             <h4 className="icon-title">Tertiary</h4>
           </div>
 
           <div className="icon-container">
-            <Text variant="body" size="large" color="error">
+            <Text variant="body" size="large" fill="error">
               Example
             </Text>
 
@@ -395,7 +395,7 @@ const TextExamples = () => (
           </div>
 
           <div className="icon-container">
-            <Text variant="label" size="large" color="#53E465">
+            <Text variant="label" size="large" fill="#53E465">
               Example
             </Text>
             <h4 className="icon-title">Custom</h4>
