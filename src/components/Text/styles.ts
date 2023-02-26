@@ -93,19 +93,19 @@ const textStyles = css`
   }
 
   .container :global(.label-large) {
-    font-weight: ${typography.weights.medium};
+    font-weight: ${typography.weights.bold};
     font-size: 0.875rem;
     line-height: 1.25rem;
     letter-spacing: 0.1px;
   }
   .container :global(.label-medium) {
-    font-weight: ${typography.weights.medium};
+    font-weight: ${typography.weights.bold};
     font-size: 0.75rem;
     line-height: 1rem;
     letter-spacing: 0.5px;
   }
   .container :global(.label-small) {
-    font-weight: ${typography.weights.medium};
+    font-weight: ${typography.weights.bold};
     font-size: 0.6875rem;
     line-height: 1rem;
     letter-spacing: 0.5px;

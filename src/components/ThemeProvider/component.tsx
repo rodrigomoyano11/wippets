@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import { Noto_Sans as NotoSans } from '@next/font/google'
+import { Noto_Sans as NotoSans } from 'next/font/google'
 
 import 'material-symbols'
 

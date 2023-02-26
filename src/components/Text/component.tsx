@@ -5,7 +5,7 @@ import { PropsWithChildren, useId } from 'react'
 import { Heading, HeadingProps } from './components/Heading'
 import { textStyles } from './styles'
 import { Tag, Variant, VariantWithSize } from './types'
-import { useColors } from '~/hooks/useColors'
+import { useFills } from '~/hooks/useFills'
 import { Color, Size } from '~/types/props'
 
 type TextProps = {
@@ -23,24 +23,28 @@ const TextComponent = (props: PropsWithChildren<TextProps>) => {
     children,
     variant = 'body',
     size = 'medium',
-    color = 'onBackground',
+    color: colorProp = 'onBackground',
     tag,
     withSpacing = false,
     className = '',
   } = props
 
   // Hooks
-  const { getColorByName } = useColors()
+  const { getFill } = useFills()
 
   const id = useId()
 
+  // Data
+  const selectedType: VariantWithSize = `${variant}-${size}`
+
+  const color = getFill({ fill: colorProp })
+
   // Styles
-  const cssVariables = { '--color': getColorByName(color) }
+  const cssVariables = { '--color': color }
 
   const containerClassName = `container ${className} ${withSpacing ? 'with-spacing' : ''}`
 
   // Render
-  const selectedType: VariantWithSize = `${variant}-${size}`
 
   const headingProps = {
     id,
@@ -50,13 +54,15 @@ const TextComponent = (props: PropsWithChildren<TextProps>) => {
   }
 
   const headingComponent = <Heading {...headingProps}>{children}</Heading>
+  const bodyComponent = <p className={selectedType}>{children}</p>
+  const labelComponent = <span className={selectedType}>{children}</span>
 
   const variants: Record<Variant, JSX.Element> = {
     display: headingComponent,
     headline: headingComponent,
     title: headingComponent,
-    body: <p className={selectedType}>{children}</p>,
-    label: <span className={selectedType}>{children}</span>,
+    body: bodyComponent,
+    label: labelComponent,
   }
 
   const tags: Record<Tag, JSX.Element> = {
@@ -66,8 +72,8 @@ const TextComponent = (props: PropsWithChildren<TextProps>) => {
     h4: headingComponent,
     h5: headingComponent,
     h6: headingComponent,
-    p: <p className={selectedType}>{children}</p>,
-    span: <span className={selectedType}>{children}</span>,
+    p: bodyComponent,
+    span: labelComponent,
   }
 
   return (

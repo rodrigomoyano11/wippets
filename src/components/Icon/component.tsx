@@ -2,7 +2,7 @@ import { CSSProperties, useRef } from 'react'
 
 import { GRADES, OPTICAL_SIZES, SIZES_AS_STRING } from './constants'
 import { Grade, IconName, OpticalSize, Size, Weight } from './types'
-import { useColors } from '~/hooks/useColors'
+import { useFills } from '~/hooks/useFills'
 import { Color } from '~/types/props'
 import { getNearestFromValues } from '~/utils/getNearestFromValues'
 
@@ -26,7 +26,7 @@ const IconComponent = (props: IconProps) => {
     name,
     type = 'outlined',
     size = 'medium',
-    color = '#000',
+    color: colorProp = '#000',
     options,
     className = '',
   } = props
@@ -39,12 +39,13 @@ const IconComponent = (props: IconProps) => {
   } = options ?? {}
 
   // Hooks
-  const { getColorByName } = useColors()
+  const { getFill } = useFills()
   const elementRef = useRef<HTMLSpanElement>(null)
 
   // Data
   const fill = fillProp === 'yes' ? 1 : 0
   const grade = GRADES[gradeProp]
+  const color = getFill({ fill: colorProp })
 
   // Methods
   const getWidth = () => {
@@ -66,12 +67,13 @@ const IconComponent = (props: IconProps) => {
 
   // Styles
   const spanClassNames = `material-symbols-${type} ${className}`
+
   const spanStyles: CSSProperties = {
     userSelect: 'none',
     WebkitUserSelect: 'none',
     fontVariationSettings: `"FILL" ${fill}, "wght" ${weight}, "GRAD" ${grade}, "opsz" ${getWidth()}`,
     fontSize: `${getSize()}px`,
-    color: getColorByName(color),
+    color,
   }
 
   // Render

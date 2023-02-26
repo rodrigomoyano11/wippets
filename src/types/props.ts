@@ -1,7 +1,13 @@
-import { theme } from '~/components/ThemeProvider'
+import { ThemeProviderTypes } from '~/components/ThemeProvider/types'
 
-type Color = `#${string}` | 'currentColor' | keyof (typeof theme.themes)['dark' | 'light']
+type ColorValue = `#${string}` | 'currentColor'
+
+type Color = ColorValue | ThemeProviderTypes['Color']
+
+type GradientValue = `linear-gradient(${string})`
+
+type Gradient = GradientValue | ThemeProviderTypes['Gradient']
 
 type Size = 'small' | 'medium' | 'large'
 
-export type { Color, Size }
+export type { Color, Gradient, Size }

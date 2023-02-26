@@ -1,3 +1,1 @@
-import { HeaderComponent as Header } from './component'
-
-export { Header }
+export { HeaderComponent as Header } from './component'
