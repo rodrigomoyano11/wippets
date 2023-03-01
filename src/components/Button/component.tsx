@@ -1,6 +1,6 @@
 'use client'
 
-import { PropsWithChildren } from 'react'
+import { HTMLProps, PropsWithChildren } from 'react'
 
 import { buttonStyles } from './styles'
 import { Variant } from './types'
@@ -17,6 +17,11 @@ type ButtonProps = PropsWithChildren<{
   onClick?: () => void
   disabled?: boolean
   className?: string
+  type?: 'button' | 'submit' | 'reset'
+  htmlProps?: Omit<
+    HTMLProps<HTMLButtonElement>,
+    'type' | 'onClick' | 'disabled' | 'className' | 'style'
+  >
 }>
 
 const ButtonComponent = (props: ButtonProps) => {
@@ -31,6 +36,8 @@ const ButtonComponent = (props: ButtonProps) => {
     onClick,
     disabled = false,
     className = '',
+    type = 'button',
+    htmlProps = {},
   } = props
 
   // Hooks
@@ -74,11 +81,13 @@ const ButtonComponent = (props: ButtonProps) => {
     disabled,
     style: cssVariables,
     className: buttonClassName,
+    type,
+    ...htmlProps,
   }
 
   // Render
   return (
-    <button type="button" {...buttonProps}>
+    <button {...buttonProps}>
       {typeof children === 'string' ? (
         <Text variant="label" size={size} fill="currentColor" className="label">
           {children}
