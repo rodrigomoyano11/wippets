@@ -1,4 +1,3 @@
-/* eslint-disable max-lines */
 type Pet = {
   id: string
   owners: string[]
