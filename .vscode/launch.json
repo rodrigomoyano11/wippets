@@ -2,15 +2,15 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug",
-      "type": "node-terminal",
+      "type": "msedge",
+      "name": "Microsoft Edge",
       "request": "launch",
-      "command": "npx --NODE_OPTIONS=--inspect next dev",
-      "serverReadyAction": {
-        "pattern": "started server on .+, url: (https?://.+)",
-        "uriFormat": "%s",
-        "action": "openExternally"
-      }
+      "runtimeArgs": ["--remote-debugging-port=9222"],
+      "url": "http://localhost:3000",
+      "sourceMaps": true,
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "Run dev server",
+      "postDebugTask": "Terminate All Tasks"
     }
   ],
   "compounds": []
