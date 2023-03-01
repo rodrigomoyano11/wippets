@@ -7,4 +7,6 @@ type MainFill = ThemeProviderTypes['Fills']['Main']
 type ContentFill = ThemeProviderTypes['Fills']['Content']
 type OtherFill = ThemeProviderTypes['Fills']['Other']
 
-export type { Color, Gradient, MainFill, ContentFill, OtherFill }
+type WithParams<T> = { params: T }
+
+export type { Color, Gradient, MainFill, ContentFill, OtherFill, WithParams }
