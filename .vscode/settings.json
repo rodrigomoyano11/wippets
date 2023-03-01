@@ -20,7 +20,6 @@
     "playwright-report": true,
     "pnpm-lock.yaml": true,
     "README.md": true,
-    "thunder-tests": true,
     "tsconfig.json": true,
     "yarn.lock": true
   }
