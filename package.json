@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "material-symbols": "0.4.5",
-    "next": "13.2.1",
+    "next": "13.2.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-jsx": "5.1.2"
@@ -29,7 +29,7 @@
     "@typescript-eslint/parser": "5.54.0",
     "@vitejs/plugin-react-swc": "3.2.0",
     "eslint": "8.35.0",
-    "eslint-config-next": "13.2.1",
+    "eslint-config-next": "13.2.2",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-import": "2.27.5",
     "happy-dom": "8.9.0",
